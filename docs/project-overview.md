@@ -8,6 +8,8 @@
 
 ### Git Commit Message Convention
 
+Credit: https://dev.to/theonlineaid/scalable-git-workflow-nextjs-project-structure-master-guide-1l15
+
 #### Format
 
 `<category>: <imperative statements separated by ';'>`
@@ -62,6 +64,5 @@ test/refactor-components-with-atomic design
 
 ## What is the next area of focus?
 
-- Choose Git Workflow and document (see: https://dev.to/theonlineaid/scalable-git-workflow-nextjs-project-structure-master-guide-1l15)
 - Research which API to use and see what information can be pulled back
 - Create high level design skeleton to start understanding what tech is needed to support
