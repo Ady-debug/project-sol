@@ -4,6 +4,23 @@
 
 ## What tech stack will be used?
 
+### Tech stack
+
+The web application will be built using the following:
+
+- Next.js
+- React (Typescript)
+- Tailwind CSS
+- Shadcn UI
+- GitHub/GitHub Actions
+- Vercel
+
+### API provider
+
+Sunset and sunrise data will be collected through the Sunsethue API. More information can be found by following the link below:
+
+https://sunsethue.com/dev-api/portal
+
 ## What workflows do I need to be aware of?
 
 ### Git Commit Message Convention
@@ -64,5 +81,6 @@ test/refactor-components-with-atomic design
 
 ## What is the next area of focus?
 
-- Research which API to use and see what information can be pulled back
-- Create high level design skeleton to start understanding what tech is needed to support
+1. Read SunsetHue documentation and create test program to bring information back from API endpoint
+2. Think about a tracer bullet to prove out the concept and get the basics setup
+3. Create high level design skeleton to start understanding what tech is needed to support
