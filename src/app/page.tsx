@@ -51,13 +51,15 @@ export default async function Home() {
         {forecastItems.map((item) => (
           <div key={item.time}>
             <ul>
-              <b>{item.time}</b>
+              <li>
+                <b>{item.time}</b>
+              </li>
+              <li>Type: {item.type}</li>
+              <li>
+                Quality: {item.quality} - {item.quality_text}
+              </li>
+              <li>Cloud Cover: {item.cloud_cover}</li>
             </ul>
-            <ul>Type: {item.type}</ul>
-            <ul>
-              Quality: {item.quality} - {item.quality_text}
-            </ul>
-            <ul>Cloud Cover: {item.cloud_cover}</ul>
           </div>
         ))}
       </main>
