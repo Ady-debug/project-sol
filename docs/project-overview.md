@@ -81,6 +81,6 @@ test/refactor-components-with-atomic design
 
 ## What is the next area of focus?
 
-1. Read SunsetHue documentation and create test program to bring information back from API endpoint
+1. Map data from API to display on main page
 2. Think about a tracer bullet to prove out the concept and get the basics setup
 3. Create high level design skeleton to start understanding what tech is needed to support
