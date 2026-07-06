@@ -1,3 +1,27 @@
+interface ForecastItem {
+  type: string;
+  model_data: boolean;
+  quality: number;
+  cloud_cover: number;
+  quality_text: string;
+  time: string;
+  direction: number;
+  magics: object;
+}
+
+interface ForecastResponse {
+  time: string;
+  location: {
+    latitude: number;
+    longitude: number;
+  };
+  grid_location: {
+    latitude: number;
+    longitude: number;
+  };
+  data: ForecastItem[];
+}
+
 export default async function Home() {
   const API_KEY: string | undefined = process.env.SUNSETHUE_API_KEY;
 
@@ -7,7 +31,7 @@ export default async function Home() {
 
   const latitude: number = 53.962;
   const longitude: number = -2.016;
-  const res = await fetch(
+  const res: Response = await fetch(
     `https://api.sunsethue.com/forecast?latitude=${latitude}&longitude=${longitude}`,
     {
       headers: {
@@ -16,13 +40,26 @@ export default async function Home() {
     },
   );
 
-  const data = await res.json();
-  console.log(data);
+  const response: ForecastResponse = await res.json();
+  const forecastItems: ForecastItem[] = response.data;
+  console.log(forecastItems);
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        Data mapped here eventually
+        <h1>Sol forecast:</h1>
+        {forecastItems.map((item) => (
+          <div key={item.time}>
+            <ul>
+              <b>{item.time}</b>
+            </ul>
+            <ul>Type: {item.type}</ul>
+            <ul>
+              Quality: {item.quality} - {item.quality_text}
+            </ul>
+            <ul>Cloud Cover: {item.cloud_cover}</ul>
+          </div>
+        ))}
       </main>
     </div>
   );
