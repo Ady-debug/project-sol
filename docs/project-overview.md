@@ -88,12 +88,13 @@ test/refactor-components-with-atomic design
 ## What is the next area of focus?
 
 1. Read up on Zod for schema validation
-2. Implement deployment pipelines following successful MVP creation
+2. Consider ORM use or park for later
+3. Implement deployment pipelines following successful MVP creation
 
 ### Tracer bullet components
 
+- [x] Move types to separate file
 - [ ] Implement Zod schema validation
-- [ ] Move types to separate file
 - [ ] Select and implement shadcnUI component for sunrise/sunset cards
 - [ ] Implement option for entering location
 - [ ] Component styling
