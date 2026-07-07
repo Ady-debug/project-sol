@@ -1,26 +1,4 @@
-interface ForecastItem {
-  type: string;
-  model_data: boolean;
-  quality: number;
-  cloud_cover: number;
-  quality_text: string;
-  time: string;
-  direction: number;
-  magics: object;
-}
-
-interface ForecastResponse {
-  time: string;
-  location: {
-    latitude: number;
-    longitude: number;
-  };
-  grid_location: {
-    latitude: number;
-    longitude: number;
-  };
-  data: ForecastItem[];
-}
+import { ForecastItem, ForecastResponse } from "./lib/types";
 
 export default async function Home() {
   const API_KEY: string | undefined = process.env.SUNSETHUE_API_KEY;
