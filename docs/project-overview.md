@@ -2,6 +2,8 @@
 
 ## What is the purpose of the application?
 
+The application MVP will be a page users can input their location details and receive a 3 day forecast of both sunrise and sunsets.
+
 ## What tech stack will be used?
 
 ### Tech stack
@@ -77,9 +79,23 @@ test/refactor-components-with-atomic design
 
 ## How does it all hang together?
 
+![Overview Diagram](/docs/project-sol-overview.png)
+
 ## What architectural decisions have been made?
+
+- Zod will be used for schema validation
 
 ## What is the next area of focus?
 
-1. Think about a tracer bullet to prove out the concept and get the basics setup
-2. Create high level design skeleton to start understanding what tech is needed to support
+1. Read up on Zod for schema validation
+2. Implement deployment pipelines following successful MVP creation
+
+### Tracer bullet components
+
+- [ ] Implement Zod schema validation
+- [ ] Move types to separate file
+- [ ] Select and implement shadcnUI component for sunrise/sunset cards
+- [ ] Implement option for entering location
+- [ ] Component styling
+- [ ] Authentication for individual users
+- [ ] Deploy to Vercel
