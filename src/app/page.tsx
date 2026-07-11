@@ -1,24 +1,29 @@
 import { ForecastItem, ForecastResponse } from "./lib/types";
+import { responseData } from "./lib/data";
 
 export default async function Home() {
-  const API_KEY: string | undefined = process.env.SUNSETHUE_API_KEY;
+  // ***Uncomment below to use live API instead of dummy data***
 
-  if (!API_KEY) {
-    throw new Error("API Key Missing");
-  }
+  // const API_KEY: string | undefined = process.env.SUNSETHUE_API_KEY;
 
-  const latitude: number = 53.962;
-  const longitude: number = -2.016;
-  const res: Response = await fetch(
-    `https://api.sunsethue.com/forecast?latitude=${latitude}&longitude=${longitude}`,
-    {
-      headers: {
-        "x-api-key": API_KEY,
-      },
-    },
-  );
+  // if (!API_KEY) {
+  //   throw new Error("API Key Missing");
+  // }
 
-  const response: ForecastResponse = await res.json();
+  // const latitude: number = 53.962;
+  // const longitude: number = -2.016;
+  // const res: Response = await fetch(
+  //   `https://api.sunsethue.com/forecast?latitude=${latitude}&longitude=${longitude}`,
+  //   {
+  //     headers: {
+  //       "x-api-key": API_KEY,
+  //     },
+  //   },
+  // );
+
+  // const response: ForecastResponse = await res.json();
+
+  const response: ForecastResponse = responseData; // <- remove line if using production API
   const forecastItems: ForecastItem[] = response.data;
   console.log(forecastItems);
 

@@ -94,9 +94,10 @@ test/refactor-components-with-atomic design
 ### Tracer bullet components
 
 - [x] Move types to separate file
-- [ ] Implement Zod schema validation
+- [x] Create dummy data file to save on API costs
 - [ ] Select and implement shadcnUI component for sunrise/sunset cards
 - [ ] Implement option for entering location
 - [ ] Component styling
 - [ ] Authentication for individual users
 - [ ] Deploy to Vercel
+- [ ] Consider implementation of Zod schema validation
