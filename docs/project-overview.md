@@ -95,9 +95,9 @@ test/refactor-components-with-atomic design
 
 - [x] Move types to separate file
 - [x] Create dummy data file to save on API costs
-- [ ] Select and implement shadcnUI component for sunrise/sunset cards
+- [x] Select and implement shadcnUI component for sunrise/sunset cards
 - [ ] Implement option for entering location
-- [ ] Component styling
+- [ ] Component styling and clean up text in card
 - [ ] Authentication for individual users
 - [ ] Deploy to Vercel
 - [ ] Consider implementation of Zod schema validation
