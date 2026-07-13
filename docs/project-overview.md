@@ -84,6 +84,7 @@ test/refactor-components-with-atomic design
 ## What architectural decisions have been made?
 
 - Zod will be used for schema validation
+- Tabler will be used for React icons
 
 ## What is the next area of focus?
 
