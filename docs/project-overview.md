@@ -88,16 +88,22 @@ test/refactor-components-with-atomic design
 
 ## What is the next area of focus?
 
-1. Read up on Zod for schema validation
-2. Consider ORM use or park for later
-3. Implement deployment pipelines following successful MVP creation
+1. Implement state to hold longitude and latitude, testing skeleton UI whilst awaiting information
+2. Read up on Zod for schema validation
+3. Consider ORM use or park for later
+4. Implement deployment pipelines following successful MVP creation
 
 ### Tracer bullet components
 
 - [x] Move types to separate file
 - [x] Create dummy data file to save on API costs
 - [x] Select and implement shadcnUI component for sunrise/sunset cards
-- [ ] Implement option for entering location
+- [x] Implement button for entering location
+- [x] Implement geolocation API to gain longitude and latitude
+- [x] Move button component into separate files for client component
+- [ ] Move API call to separate file to ensure main function not async
+- [ ] Add state to hold latitude/longitude and pass between component as needed
+- [ ] Implement holding UI whilst awaiting location button use
 - [ ] Component styling and clean up text in card
 - [ ] Authentication for individual users
 - [ ] Deploy to Vercel

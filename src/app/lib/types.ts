@@ -21,3 +21,15 @@ export interface ForecastResponse {
   };
   data: ForecastItem[];
 }
+
+export interface PositionResponse {
+  coords: {
+    latitude: number;
+    longitude: number;
+    altitude: number | null;
+    altitudeAccuracy: number | null;
+    speed: number | null;
+    heading: number | null;
+  };
+  timestamp: number;
+}

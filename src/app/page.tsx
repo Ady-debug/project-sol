@@ -1,5 +1,4 @@
 import { ForecastItem, ForecastResponse } from "./lib/types";
-import { responseData } from "./lib/data";
 import {
   Card,
   CardContent,
@@ -7,32 +6,29 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { IconCurrentLocation } from "@tabler/icons-react";
+import { LocationButton } from "@/components/location-button";
 
 export default async function Home() {
-  // ***Uncomment below to use live API instead of dummy data***
+  const latitude: number = 53.958529233422844;
+  const longitude: number = -2.0300812346263886;
 
-  // const API_KEY: string | undefined = process.env.SUNSETHUE_API_KEY;
+  const API_KEY: string | undefined = process.env.SUNSETHUE_API_KEY;
 
-  // if (!API_KEY) {
-  //   throw new Error("API Key Missing");
-  // }
+  if (!API_KEY) {
+    throw new Error("API Key Missing");
+  }
 
-  // const latitude: number = 53.962;
-  // const longitude: number = -2.016;
-  // const res: Response = await fetch(
-  //   `https://api.sunsethue.com/forecast?latitude=${latitude}&longitude=${longitude}`,
-  //   {
-  //     headers: {
-  //       "x-api-key": API_KEY,
-  //     },
-  //   },
-  // );
+  const res: Response = await fetch(
+    `https://api.sunsethue.com/forecast?latitude=${latitude}&longitude=${longitude}`,
+    {
+      headers: {
+        "x-api-key": API_KEY,
+      },
+    },
+  );
 
-  // const response: ForecastResponse = await res.json();
+  const response: ForecastResponse = await res.json();
 
-  const response: ForecastResponse = responseData; // <- remove line if using production API
   const forecastItems: ForecastItem[] = response.data;
   console.log(forecastItems);
 
@@ -55,10 +51,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Button>
-          Get current location
-          <IconCurrentLocation stroke={2} />
-        </Button>
+        <LocationButton />
         {forecastItems.map((item) => (
           <Card key={item.time} className="w-full max-w-sm">
             <CardHeader>
