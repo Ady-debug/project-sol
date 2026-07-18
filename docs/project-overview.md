@@ -101,9 +101,11 @@ test/refactor-components-with-atomic design
 - [x] Implement button for entering location
 - [x] Implement geolocation API to gain longitude and latitude
 - [x] Move button component into separate files for client component
-- [ ] Move API call to separate file to ensure main function not async
-- [ ] Add state to hold latitude/longitude and pass between component as needed
+- [x] Move API call to separate file to ensure main function not async
+- [x] Add state to hold latitude/longitude
+- [ ] Pass coordinates state between components
 - [ ] Implement holding UI whilst awaiting location button use
+- [ ] Add sunset/sunrise times
 - [ ] Component styling and clean up text in card
 - [ ] Authentication for individual users
 - [ ] Deploy to Vercel
