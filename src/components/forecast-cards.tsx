@@ -25,9 +25,9 @@ const res: Response = await fetch(
   },
 );
 
-const response: ForecastResponse = await res.json();
+const response: GeolocationCoordinates = await res.json();
 
-const forecastItems: ForecastItem[] = response.data;
+const forecastItems: GeolocationCoordinates = response;
 console.log(forecastItems);
 
 function getCompassDirection(heading: number): string {

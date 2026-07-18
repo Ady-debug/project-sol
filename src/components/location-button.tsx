@@ -1,5 +1,5 @@
 "use client";
-import { PositionResponse, Coordinates } from "@/app/lib/types";
+import { Coordinates } from "@/app/lib/types";
 import { Button } from "@/components/ui/button";
 import { IconCurrentLocation } from "@tabler/icons-react";
 import { useState } from "react";
@@ -11,7 +11,7 @@ export function LocationButton() {
   });
 
   function geoLocator() {
-    function success(position: PositionResponse) {
+    function handleSuccess(position: GeolocationPosition) {
       setCoordinates({
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
@@ -20,13 +20,14 @@ export function LocationButton() {
         `Latitude: ${coordinates.latitude}, Longitude: ${coordinates.longitude}`,
       );
     }
-    function error() {
+    function handleError(error: GeolocationPositionError) {
       console.error("Unable to retrieve your location");
+      console.error(error.message);
     }
     if (!navigator.geolocation) {
       console.error("Geolocation is not supported by your browser");
     } else {
-      navigator.geolocation.getCurrentPosition(success, error);
+      navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
     }
   }
 
