@@ -25,9 +25,9 @@ const res: Response = await fetch(
   },
 );
 
-const response: GeolocationCoordinates = await res.json();
+const response: ForecastResponse = await res.json();
 
-const forecastItems: GeolocationCoordinates = response;
+const forecastItems: ForecastItem[] = response.data;
 console.log(forecastItems);
 
 function getCompassDirection(heading: number): string {
@@ -50,7 +50,7 @@ export function ForecastCards() {
   return (
     <div>
       {forecastItems.map((item) => (
-        <Card key={item.time}>
+        <Card key={item.time} className="m-2">
           <CardHeader>
             <CardTitle>
               {item.time.slice(0, 10)}

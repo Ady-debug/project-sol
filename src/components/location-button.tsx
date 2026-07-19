@@ -12,13 +12,12 @@ export function LocationButton() {
 
   function geoLocator() {
     function handleSuccess(position: GeolocationPosition) {
+      const { latitude, longitude } = position.coords;
       setCoordinates({
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
+        latitude,
+        longitude,
       });
-      console.log(
-        `Latitude: ${coordinates.latitude}, Longitude: ${coordinates.longitude}`,
-      );
+      console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
     }
     function handleError(error: GeolocationPositionError) {
       console.error("Unable to retrieve your location");
