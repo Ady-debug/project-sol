@@ -10,26 +10,6 @@ import {
 const latitude: number = 53.958529233422844;
 const longitude: number = -2.0300812346263886;
 
-const API_KEY: string | undefined = process.env.SUNSETHUE_API_KEY;
-
-if (!API_KEY) {
-  throw new Error("API Key Missing");
-}
-
-const res: Response = await fetch(
-  `https://api.sunsethue.com/forecast?latitude=${latitude}&longitude=${longitude}`,
-  {
-    headers: {
-      "x-api-key": API_KEY,
-    },
-  },
-);
-
-const response: ForecastResponse = await res.json();
-
-const forecastItems: ForecastItem[] = response.data;
-console.log(forecastItems);
-
 function getCompassDirection(heading: number): string {
   const compassDirections: string[] = [
     "North",
@@ -46,7 +26,25 @@ function getCompassDirection(heading: number): string {
   return compassDirections[index];
 }
 
-export function ForecastCards() {
+export async function ForecastCards() {
+  const API_KEY: string | undefined = process.env.SUNSETHUE_API_KEY;
+  if (!API_KEY) {
+    throw new Error("API Key Missing");
+  }
+  const res: Response = await fetch(
+    `https://api.sunsethue.com/forecast?latitude=${latitude}&longitude=${longitude}`,
+    {
+      headers: {
+        "x-api-key": API_KEY,
+      },
+    },
+  );
+
+  const response: ForecastResponse = await res.json();
+
+  const forecastItems: ForecastItem[] = response.data;
+  console.log(forecastItems);
+
   return (
     <div>
       {forecastItems.map((item) => (

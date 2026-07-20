@@ -104,7 +104,7 @@ test/refactor-components-with-atomic design
 - [x] Move API call to separate file to ensure main function not async
 - [x] Add state to hold latitude/longitude
 - [x] React state timing bug, understand and implement fix so console log doesn't show null initially
-- [ ] Check types in other components to see if already pre-defined available instead of custom
+- [x] Check types in other components to see if already pre-defined available instead of custom
 - [ ] Pass coordinates state between components
 - [ ] Implement holding UI whilst awaiting location button use
 - [ ] Add sunset/sunrise times
