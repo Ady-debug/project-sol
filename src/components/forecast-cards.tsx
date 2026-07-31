@@ -76,7 +76,8 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
                 {item.type}
               </CardTitle>
               <CardDescription>
-                It is looking like a <b>{item.quality_text}</b> {item.type}
+                It is looking like a <b>{item.quality_text.toLowerCase()}</b>{" "}
+                {item.type} at <b>{item.time.slice(11, 16)}</b>
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -89,6 +90,14 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
                 </li>
                 <li>
                   <b>Direction:</b> {getCompassDirection(item.direction)}
+                </li>
+                <li>
+                  <b>Blue Hour:</b> {item.magics.blue_hour[0].slice(11, 16)} to{" "}
+                  {item.magics.blue_hour[1].slice(11, 16)}
+                </li>
+                <li>
+                  <b>Golden Hour:</b> {item.magics.golden_hour[0].slice(11, 16)}{" "}
+                  to {item.magics.golden_hour[0].slice(11, 16)}
                 </li>
               </ul>
             </CardContent>
