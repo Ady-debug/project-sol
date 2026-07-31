@@ -29,3 +29,9 @@ export interface Coordinates {
   latitude: number | null;
   longitude: number | null;
 }
+
+export interface ForecastCardsProps {
+  coords: Coordinates;
+}
+
+export type ForecastApiResult = { data: ForecastItem[] } | { error: string };

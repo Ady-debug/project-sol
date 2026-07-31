@@ -1,4 +1,12 @@
-import { ForecastItem, ForecastResponse } from "../app/lib/types";
+"use client";
+
+import { useEffect, useState } from "react";
+import {
+  Coordinates,
+  ForecastCardsProps,
+  ForecastItem,
+  ForecastApiResult,
+} from "../app/lib/types";
 import {
   Card,
   CardContent,
@@ -6,9 +14,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-const latitude: number = 53.958529233422844;
-const longitude: number = -2.0300812346263886;
 
 function getCompassDirection(heading: number): string {
   const compassDirections: string[] = [
@@ -26,54 +31,69 @@ function getCompassDirection(heading: number): string {
   return compassDirections[index];
 }
 
-export async function ForecastCards() {
-  const API_KEY: string | undefined = process.env.SUNSETHUE_API_KEY;
-  if (!API_KEY) {
-    throw new Error("API Key Missing");
-  }
-  const res: Response = await fetch(
-    `https://api.sunsethue.com/forecast?latitude=${latitude}&longitude=${longitude}`,
-    {
-      headers: {
-        "x-api-key": API_KEY,
-      },
-    },
+export function ForecastCards({ coords }: ForecastCardsProps) {
+  const [forecastItems, setForecastItems] = useState<ForecastItem[] | null>(
+    null,
   );
+  const [error, setError] = useState<string | null>(null);
+  const loading = forecastItems === null && error === null;
 
-  const response: ForecastResponse = await res.json();
+  useEffect(() => {
+    async function handleFetch(coords: Coordinates) {
+      try {
+        if (coords.latitude !== null && coords.longitude !== null) {
+          const res: Response = await fetch(
+            `/api/forecast?latitude=${coords.latitude}&longitude=${coords.longitude}`,
+          );
+          const response: ForecastApiResult = await res.json();
 
-  const forecastItems: ForecastItem[] = response.data;
-  console.log(forecastItems);
+          if ("data" in response) {
+            setForecastItems(response.data);
+          } else {
+            setError(response.error);
+            console.log(`Error: ${response.error}, Status: ${res.status}`);
+          }
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    handleFetch(coords);
+  }, [coords]);
 
   return (
     <div>
-      {forecastItems.map((item) => (
-        <Card key={item.time} className="m-2">
-          <CardHeader>
-            <CardTitle>
-              {item.time.slice(0, 10)}
-              <br />
-              {item.type}
-            </CardTitle>
-            <CardDescription>
-              It is looking like a <b>{item.quality_text}</b> {item.type}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ul>
-              <li>
-                <b>Quality:</b> {Math.round(item.quality * 100)}/100
-              </li>
-              <li>
-                <b>Cloud Cover:</b> {item.cloud_cover * 100}%
-              </li>
-              <li>
-                <b>Direction:</b> {getCompassDirection(item.direction)}
-              </li>
-            </ul>
-          </CardContent>
-        </Card>
-      ))}
+      {error && <p>There was an error loading the data: {error}</p>}
+      {loading && <p>Loading...</p>}
+      {!loading &&
+        forecastItems !== null &&
+        forecastItems.map((item) => (
+          <Card key={item.time} className="m-2">
+            <CardHeader>
+              <CardTitle>
+                {item.time.slice(0, 10)}
+                <br />
+                {item.type}
+              </CardTitle>
+              <CardDescription>
+                It is looking like a <b>{item.quality_text}</b> {item.type}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul>
+                <li>
+                  <b>Quality:</b> {Math.round(item.quality * 100)}/100
+                </li>
+                <li>
+                  <b>Cloud Cover:</b> {item.cloud_cover * 100}%
+                </li>
+                <li>
+                  <b>Direction:</b> {getCompassDirection(item.direction)}
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        ))}
     </div>
   );
 }

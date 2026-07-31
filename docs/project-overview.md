@@ -105,10 +105,17 @@ test/refactor-components-with-atomic design
 - [x] Add state to hold latitude/longitude
 - [x] React state timing bug, understand and implement fix so console log doesn't show null initially
 - [x] Check types in other components to see if already pre-defined available instead of custom
-- [ ] Pass coordinates state between components
-- [ ] Implement holding UI whilst awaiting location button use
+- [x] Pass coordinates state between components
 - [ ] Add sunset/sunrise times
 - [ ] Component styling and clean up text in card
+- [ ] Add skeletons for loading
+- [ ] Consider removing location button component
 - [ ] Authentication for individual users
 - [ ] Deploy to Vercel
 - [ ] Consider implementation of Zod schema validation
+
+### Further reading
+
+- useState/useEffect
+- Passing state between components
+- Next API routes
