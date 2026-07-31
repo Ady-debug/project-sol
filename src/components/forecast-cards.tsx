@@ -85,7 +85,7 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
                   <b>Quality:</b> {Math.round(item.quality * 100)}/100
                 </li>
                 <li>
-                  <b>Cloud Cover:</b> {item.cloud_cover * 100}%
+                  <b>Cloud Cover:</b> {Math.floor(item.cloud_cover * 100)}%
                 </li>
                 <li>
                   <b>Direction:</b> {getCompassDirection(item.direction)}
