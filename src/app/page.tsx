@@ -1,5 +1,3 @@
-import { LocationButton } from "@/components/location-button";
-import { ForecastCards } from "@/components/forecast-cards";
 import ForecastDashboard from "@/components/forecast-dashboard";
 
 export default function Home() {

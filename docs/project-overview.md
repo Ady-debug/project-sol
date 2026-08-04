@@ -106,10 +106,13 @@ test/refactor-components-with-atomic design
 - [x] React state timing bug, understand and implement fix so console log doesn't show null initially
 - [x] Check types in other components to see if already pre-defined available instead of custom
 - [x] Pass coordinates state between components
-- [ ] Add sunset/sunrise times
+- [x] Add sunset/sunrise times
+- [x] Remove location button component and mock data
 - [ ] Component styling and clean up text in card
+- [ ] Add card styling
+- [ ] Dashboard layout improvements
 - [ ] Add skeletons for loading
-- [ ] Consider removing location button component
+- [ ] Consider location map
 - [ ] Authentication for individual users
 - [ ] Deploy to Vercel
 - [ ] Consider implementation of Zod schema validation
