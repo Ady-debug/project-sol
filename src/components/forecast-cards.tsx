@@ -73,7 +73,7 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
               <CardTitle>
                 {item.time.slice(0, 10)}
                 <br />
-                {item.type}
+                {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
               </CardTitle>
               <CardDescription>
                 It is looking like a <b>{item.quality_text.toLowerCase()}</b>{" "}
