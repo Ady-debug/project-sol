@@ -71,7 +71,8 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
           <Card key={item.time} className="m-2">
             <CardHeader>
               <CardTitle>
-                {item.time.slice(0, 10)}
+                {item.time.slice(8, 10)}/{item.time.slice(5, 7)}/
+                {item.time.slice(0, 4)}
                 <br />
                 {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
               </CardTitle>
