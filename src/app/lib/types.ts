@@ -1,5 +1,5 @@
 export interface ForecastItem {
-  type: "Sunrise" | "Sunset";
+  type: "sunrise" | "sunset";
   model_data: boolean;
   quality: number;
   cloud_cover: number;
