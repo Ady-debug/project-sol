@@ -92,14 +92,31 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
                 <li>
                   <b>Direction:</b> {getCompassDirection(item.direction)}
                 </li>
-                <li>
-                  <b>Blue Hour:</b> {item.magics.blue_hour[0].slice(11, 16)} to{" "}
-                  {item.magics.blue_hour[1].slice(11, 16)}
-                </li>
-                <li>
-                  <b>Golden Hour:</b> {item.magics.golden_hour[0].slice(11, 16)}{" "}
-                  to {item.magics.golden_hour[0].slice(11, 16)}
-                </li>
+                {item.type === "sunrise" ? (
+                  <>
+                    <li>
+                      <b>Blue Hour:</b> {item.magics.blue_hour[0].slice(11, 16)}{" "}
+                      to {item.magics.blue_hour[1].slice(11, 16)}
+                    </li>
+                    <li>
+                      <b>Golden Hour:</b>{" "}
+                      {item.magics.golden_hour[0].slice(11, 16)} to{" "}
+                      {item.magics.golden_hour[1].slice(11, 16)}
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <b>Golden Hour:</b>{" "}
+                      {item.magics.golden_hour[0].slice(11, 16)} to{" "}
+                      {item.magics.golden_hour[1].slice(11, 16)}
+                    </li>
+                    <li>
+                      <b>Blue Hour:</b> {item.magics.blue_hour[0].slice(11, 16)}{" "}
+                      to {item.magics.blue_hour[1].slice(11, 16)}
+                    </li>
+                  </>
+                )}
               </ul>
             </CardContent>
           </Card>
