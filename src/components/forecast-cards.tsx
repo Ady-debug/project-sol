@@ -74,11 +74,12 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
                 {item.time.slice(8, 10)}/{item.time.slice(5, 7)}/
                 {item.time.slice(0, 4)}
                 <br />
-                {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+                <span className="capitalize">{item.type}</span>
               </CardTitle>
               <CardDescription>
-                It is looking like a <b>{item.quality_text.toLowerCase()}</b>{" "}
-                {item.type} at <b>{item.time.slice(11, 16)}</b>
+                It is looking like a{" "}
+                <b className="lowercase">{item.quality_text}</b> {item.type} at{" "}
+                <b>{item.time.slice(11, 16)}</b>
               </CardDescription>
             </CardHeader>
             <CardContent>
