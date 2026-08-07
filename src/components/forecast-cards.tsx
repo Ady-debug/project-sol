@@ -14,6 +14,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 const locale: string = "en-GB";
 
@@ -84,60 +85,67 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
       {loading && <p>Loading...</p>}
       {!loading &&
         forecastItems !== null &&
-        forecastItems.map((item) => (
-          <Card key={item.time} className="m-2">
-            <CardHeader>
-              <CardTitle>
-                {formatDate(item.time)}
-                <br />
-                <span className="capitalize">{item.type}</span>
-              </CardTitle>
-              <CardDescription>
-                It is looking like a{" "}
-                <b className="lowercase">{item.quality_text}</b> {item.type} at{" "}
-                <b>{formatTime(item.time)}</b>
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul>
-                <li>
-                  <b>Quality:</b> {Math.round(item.quality * 100)}/100
-                </li>
-                <li>
-                  <b>Cloud Cover:</b> {Math.floor(item.cloud_cover * 100)}%
-                </li>
-                <li>
-                  <b>Direction:</b> {getCompassDirection(item.direction)}
-                </li>
-                {item.type === "sunrise" ? (
-                  <>
-                    <li>
-                      <b>Blue Hour:</b> {formatTime(item.magics.blue_hour[0])}{" "}
-                      to {formatTime(item.magics.blue_hour[1])}
-                    </li>
-                    <li>
-                      <b>Golden Hour:</b>
-                      {formatTime(item.magics.golden_hour[0])} to{" "}
-                      {formatTime(item.magics.golden_hour[1])}
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li>
-                      <b>Golden Hour:</b>
-                      {formatTime(item.magics.golden_hour[0])} to{" "}
-                      {formatTime(item.magics.golden_hour[1])}
-                    </li>
-                    <li>
-                      <b>Blue Hour:</b> {formatTime(item.magics.blue_hour[0])}{" "}
-                      to {formatTime(item.magics.blue_hour[1])}
-                    </li>
-                  </>
-                )}
-              </ul>
-            </CardContent>
-          </Card>
-        ))}
+        forecastItems.map((item) => {
+          const backgroundClass =
+            item.type === "sunrise"
+              ? "bg-linear-30 from-orange-400 to-pink-300"
+              : "bg-linear-30 from-pink-300 to-orange-400";
+
+          return (
+            <Card key={item.time} className={cn("m-2", backgroundClass)}>
+              <CardHeader>
+                <CardTitle>
+                  {formatDate(item.time)}
+                  <br />
+                  <span className="capitalize">{item.type}</span>
+                </CardTitle>
+                <CardDescription>
+                  It is looking like a{" "}
+                  <b className="lowercase">{item.quality_text}</b> {item.type}{" "}
+                  at <b>{formatTime(item.time)}</b>
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul>
+                  <li>
+                    <b>Quality:</b> {Math.round(item.quality * 100)}/100
+                  </li>
+                  <li>
+                    <b>Cloud Cover:</b> {Math.floor(item.cloud_cover * 100)}%
+                  </li>
+                  <li>
+                    <b>Direction:</b> {getCompassDirection(item.direction)}
+                  </li>
+                  {item.type === "sunrise" ? (
+                    <>
+                      <li>
+                        <b>Blue Hour:</b> {formatTime(item.magics.blue_hour[0])}{" "}
+                        to {formatTime(item.magics.blue_hour[1])}
+                      </li>
+                      <li>
+                        <b>Golden Hour:</b>
+                        {formatTime(item.magics.golden_hour[0])} to{" "}
+                        {formatTime(item.magics.golden_hour[1])}
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li>
+                        <b>Golden Hour:</b>
+                        {formatTime(item.magics.golden_hour[0])} to{" "}
+                        {formatTime(item.magics.golden_hour[1])}
+                      </li>
+                      <li>
+                        <b>Blue Hour:</b> {formatTime(item.magics.blue_hour[0])}{" "}
+                        to {formatTime(item.magics.blue_hour[1])}
+                      </li>
+                    </>
+                  )}
+                </ul>
+              </CardContent>
+            </Card>
+          );
+        })}
     </div>
   );
 }

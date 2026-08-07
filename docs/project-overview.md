@@ -111,9 +111,11 @@ test/refactor-components-with-atomic design
 - [x] Clean up text in card
 - [x] Correct ForecastItem type
 - [x] Fix golden hour bug with incorrect time and check time frame correct for golden and blue hour
-- [ ] Use tailwind capitalize className and a span element to capitalise the title and lowercase items
-- [ ] Use Date + toLocaleDateString instead of slicing to improve date robustness if API changes using helper function throughout (similar to getCompassDirection)
-- [ ] Add card styling
+- [x] Use tailwind capitalize className and a span element to capitalise the title and lowercase items
+- [x] Use Date + toLocaleDateString instead of slicing to improve date robustness if API changes using helper function throughout (similar to getCompassDirection)
+- [x] Add card background styling
+- [ ] Clean up card text
+- [ ] Create helper function to extract colour logic to change on conditions (e.g. more intense colours for different sunsets, cloud cover etc.)
 - [ ] Dashboard layout improvements
 - [ ] Add skeletons for loading
 - [ ] Consider location map
