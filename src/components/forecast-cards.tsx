@@ -15,6 +15,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+const locale: string = "en-GB";
+
 function getCompassDirection(heading: number): string {
   const compassDirections: string[] = [
     "North",
@@ -29,6 +31,21 @@ function getCompassDirection(heading: number): string {
   const index =
     Math.round(((heading %= 360) < 0 ? heading + 360 : heading) / 45) % 8;
   return compassDirections[index];
+}
+
+function formatDate(isoString: string) {
+  return new Date(isoString).toLocaleDateString(locale, {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+}
+
+function formatTime(isoString: string) {
+  return new Date(isoString).toLocaleTimeString(locale, {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 }
 
 export function ForecastCards({ coords }: ForecastCardsProps) {
@@ -71,15 +88,14 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
           <Card key={item.time} className="m-2">
             <CardHeader>
               <CardTitle>
-                {item.time.slice(8, 10)}/{item.time.slice(5, 7)}/
-                {item.time.slice(0, 4)}
+                {formatDate(item.time)}
                 <br />
                 <span className="capitalize">{item.type}</span>
               </CardTitle>
               <CardDescription>
                 It is looking like a{" "}
                 <b className="lowercase">{item.quality_text}</b> {item.type} at{" "}
-                <b>{item.time.slice(11, 16)}</b>
+                <b>{formatTime(item.time)}</b>
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -96,25 +112,25 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
                 {item.type === "sunrise" ? (
                   <>
                     <li>
-                      <b>Blue Hour:</b> {item.magics.blue_hour[0].slice(11, 16)}{" "}
-                      to {item.magics.blue_hour[1].slice(11, 16)}
+                      <b>Blue Hour:</b> {formatTime(item.magics.blue_hour[0])}{" "}
+                      to {formatTime(item.magics.blue_hour[1])}
                     </li>
                     <li>
-                      <b>Golden Hour:</b>{" "}
-                      {item.magics.golden_hour[0].slice(11, 16)} to{" "}
-                      {item.magics.golden_hour[1].slice(11, 16)}
+                      <b>Golden Hour:</b>
+                      {formatTime(item.magics.golden_hour[0])} to{" "}
+                      {formatTime(item.magics.golden_hour[1])}
                     </li>
                   </>
                 ) : (
                   <>
                     <li>
-                      <b>Golden Hour:</b>{" "}
-                      {item.magics.golden_hour[0].slice(11, 16)} to{" "}
-                      {item.magics.golden_hour[1].slice(11, 16)}
+                      <b>Golden Hour:</b>
+                      {formatTime(item.magics.golden_hour[0])} to{" "}
+                      {formatTime(item.magics.golden_hour[1])}
                     </li>
                     <li>
-                      <b>Blue Hour:</b> {item.magics.blue_hour[0].slice(11, 16)}{" "}
-                      to {item.magics.blue_hour[1].slice(11, 16)}
+                      <b>Blue Hour:</b> {formatTime(item.magics.blue_hour[0])}{" "}
+                      to {formatTime(item.magics.blue_hour[1])}
                     </li>
                   </>
                 )}
