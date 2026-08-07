@@ -92,14 +92,20 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
               : "bg-linear-30 from-pink-300 to-orange-400";
 
           return (
-            <Card key={item.time} className={cn("m-2", backgroundClass)}>
+            <Card
+              key={item.time}
+              className={cn(
+                "m-2 shadow-xl/20 opacity-90 hover:opacity-100 text-white",
+                backgroundClass,
+              )}
+            >
               <CardHeader>
-                <CardTitle>
+                <CardTitle className="font-extrabold">
                   {formatDate(item.time)}
                   <br />
                   <span className="capitalize">{item.type}</span>
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-white">
                   It is looking like a{" "}
                   <b className="lowercase">{item.quality_text}</b> {item.type}{" "}
                   at <b>{formatTime(item.time)}</b>
