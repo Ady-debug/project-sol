@@ -80,7 +80,7 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
   }, [coords]);
 
   return (
-    <div>
+    <div className="grid grid-cols-1 gap-5 justify-content-center sm:grid-cols-2">
       {error && <p>There was an error loading the data: {error}</p>}
       {loading && <p>Loading...</p>}
       {!loading &&

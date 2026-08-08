@@ -114,11 +114,13 @@ test/refactor-components-with-atomic design
 - [x] Use tailwind capitalize className and a span element to capitalise the title and lowercase items
 - [x] Use Date + toLocaleDateString instead of slicing to improve date robustness if API changes using helper function throughout (similar to getCompassDirection)
 - [x] Add card background styling
-- [ ] Clean up card text
-- [ ] Create helper function to extract colour logic to change on conditions (e.g. more intense colours for different sunsets, cloud cover etc.)
-- [ ] Dashboard layout improvements
-- [ ] Add skeletons for loading
+- [x] Clean up card text
+- [x] Dashboard layout improvements
+- [ ] Add background image
+- [ ] Add app title header
+- [ ] Add skeletons for loading and styling for error state
 - [ ] Consider location map
+- [ ] Create helper function to extract colour logic to change on conditions (e.g. more intense colours for different sunsets, cloud cover etc.)
 - [ ] Authentication for individual users
 - [ ] Deploy to Vercel
 - [ ] Consider implementation of Zod schema validation
