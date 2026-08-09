@@ -88,14 +88,14 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
         forecastItems.map((item) => {
           const backgroundClass =
             item.type === "sunrise"
-              ? "bg-linear-30 from-orange-400 to-pink-300"
-              : "bg-linear-30 from-pink-300 to-orange-400";
+              ? "bg-linear-30 from-orange-400/75 to-pink-300/75"
+              : "bg-linear-30 from-pink-300/75 to-orange-400/75";
 
           return (
             <Card
               key={item.time}
               className={cn(
-                "m-2 shadow-xl/20 opacity-90 hover:opacity-100 text-white",
+                "m-2 shadow-xl/20 bg-transparent backdrop-blur-sm hover:brightness-110 text-white",
                 backgroundClass,
               )}
             >
