@@ -31,7 +31,7 @@ export default function ForecastDashboard() {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center">
       <ForecastCards coords={coordinates} />
     </div>
   );

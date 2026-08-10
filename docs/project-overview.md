@@ -116,8 +116,9 @@ test/refactor-components-with-atomic design
 - [x] Add card background styling
 - [x] Clean up card text
 - [x] Dashboard layout improvements
-- [ ] Add background image
-- [ ] Add app title header
+- [x] Add background image
+- [x] Add app title header
+- [ ] Add app footer
 - [ ] Add skeletons for loading and styling for error state
 - [ ] Consider location map
 - [ ] Create helper function to extract colour logic to change on conditions (e.g. more intense colours for different sunsets, cloud cover etc.)
