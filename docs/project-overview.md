@@ -118,8 +118,9 @@ test/refactor-components-with-atomic design
 - [x] Dashboard layout improvements
 - [x] Add background image
 - [x] Add app title header
-- [ ] Add app footer
-- [ ] Add skeletons for loading and styling for error state
+- [x] Add app footer
+- [x] Add skeletons for loading state
+- [ ] Add component/styling for error state
 - [ ] Consider location map
 - [ ] Create helper function to extract colour logic to change on conditions (e.g. more intense colours for different sunsets, cloud cover etc.)
 - [ ] Authentication for individual users
