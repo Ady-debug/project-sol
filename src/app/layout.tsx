@@ -35,6 +35,7 @@ export default function RootLayout({
         geistMono.variable,
         "font-sans",
         inter.variable,
+        "overscroll-none",
       )}
     >
       <body className="min-h-full flex flex-col">{children}</body>

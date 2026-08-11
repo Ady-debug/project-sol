@@ -129,7 +129,7 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
                         to {formatTime(item.magics.blue_hour[1])}
                       </li>
                       <li>
-                        <b>Golden Hour:</b>
+                        <b>Golden Hour:</b>{" "}
                         {formatTime(item.magics.golden_hour[0])} to{" "}
                         {formatTime(item.magics.golden_hour[1])}
                       </li>
@@ -137,7 +137,7 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
                   ) : (
                     <>
                       <li>
-                        <b>Golden Hour:</b>
+                        <b>Golden Hour:</b>{" "}
                         {formatTime(item.magics.golden_hour[0])} to{" "}
                         {formatTime(item.magics.golden_hour[1])}
                       </li>

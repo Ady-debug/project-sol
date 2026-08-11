@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <div className="flex flex-col items-center text-center gap-3 py-7 font-sans">
+    <header className="flex flex-col items-center text-center gap-3 py-7 font-sans">
       <h1 className="text-7xl font-black tracking-tight text-foreground">
         Project Sol
       </h1>
@@ -9,6 +9,6 @@ export default function Header() {
         Real-time forecasts for the best sunrises and sunsets, based on your
         location.
       </p>
-    </div>
+    </header>
   );
 }
