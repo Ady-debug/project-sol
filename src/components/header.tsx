@@ -5,7 +5,7 @@ export default function Header() {
         Project Sol
       </h1>
       <span className="h-1 w-20 rounded-full bg-linear-to-r from-amber-400 to-rose-500" />
-      <p className="text-base text-muted-foreground max-w-lg">
+      <p className="text-base px-5 text-muted-foreground max-w-lg">
         Real-time forecasts for the best sunrises and sunsets, based on your
         location.
       </p>
