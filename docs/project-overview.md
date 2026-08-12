@@ -125,6 +125,8 @@ test/refactor-components-with-atomic design
 - [ ] Authentication for individual users
 - [ ] Consider location map
 - [ ] Create helper function to extract colour logic to change on conditions (e.g. more intense colours for different sunsets, cloud cover etc.)
+- [ ] Authentication for individual users
+- [ ] Deploy to Vercel
 - [ ] Consider implementation of Zod schema validation
 
 ### Further reading
