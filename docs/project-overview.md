@@ -120,11 +120,11 @@ test/refactor-components-with-atomic design
 - [x] Add app title header
 - [x] Add app footer
 - [x] Add skeletons for loading state
-- [ ] Add component/styling for error state
+- [x] Add component/styling for error state
+- [x] Deploy to Vercel
+- [ ] Authentication for individual users
 - [ ] Consider location map
 - [ ] Create helper function to extract colour logic to change on conditions (e.g. more intense colours for different sunsets, cloud cover etc.)
-- [ ] Authentication for individual users
-- [ ] Deploy to Vercel
 - [ ] Consider implementation of Zod schema validation
 
 ### Further reading
