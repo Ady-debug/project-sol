@@ -6,7 +6,7 @@ import {
   ForecastCardsProps,
   ForecastItem,
   ForecastApiResult,
-} from "../app/lib/types";
+} from "@/lib/types";
 import {
   Card,
   CardContent,
@@ -15,8 +15,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import ForecastCardsSkeleton from "./forecast-cards-skeleton";
-import ErrorCard from "./error-card";
+import ForecastCardsSkeleton from "@/components/forecast-cards-skeleton";
+import ErrorCard from "@/components/error-card";
 
 const locale: string = "en-GB";
 

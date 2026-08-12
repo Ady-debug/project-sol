@@ -1,7 +1,7 @@
 "use client";
 
 import { ForecastCards } from "@/components/forecast-cards";
-import { Coordinates } from "@/app/lib/types";
+import { Coordinates } from "@/lib/types";
 import { useState, useEffect } from "react";
 
 export default function ForecastDashboard() {

@@ -1,4 +1,4 @@
-import { ErrorCardProps } from "@/app/lib/types";
+import { ErrorCardProps } from "@/lib/types";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 
 export default function ErrorCard({ error }: ErrorCardProps) {

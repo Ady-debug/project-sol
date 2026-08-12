@@ -1,4 +1,4 @@
-import { ForecastResponse } from "@/app/lib/types";
+import { ForecastResponse } from "@/lib/types";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
