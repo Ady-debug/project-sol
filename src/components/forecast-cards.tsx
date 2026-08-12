@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import ForecastCardsSkeleton from "./forecast-cards-skeleton";
+import ErrorCard from "./error-card";
 
 const locale: string = "en-GB";
 
@@ -82,12 +83,13 @@ export function ForecastCards({ coords }: ForecastCardsProps) {
 
   return (
     <div className="grid grid-cols-1 gap-5 justify-content-center sm:grid-cols-2">
-      {error && <p>There was an error loading the data: {error}</p>}
+      {error && <ErrorCard error={error} />}
       {loading &&
         Array.from({ length: 6 }).map((_, i) => (
           <ForecastCardsSkeleton key={i} />
         ))}
       {!loading &&
+        !error &&
         forecastItems !== null &&
         forecastItems.map((item) => {
           const backgroundClass =

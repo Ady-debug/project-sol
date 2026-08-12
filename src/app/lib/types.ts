@@ -34,4 +34,8 @@ export interface ForecastCardsProps {
   coords: Coordinates;
 }
 
+export interface ErrorCardProps {
+  error: string;
+}
+
 export type ForecastApiResult = { data: ForecastItem[] } | { error: string };
