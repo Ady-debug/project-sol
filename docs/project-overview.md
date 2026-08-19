@@ -16,6 +16,7 @@ The web application will be built using the following:
 - Shadcn UI
 - GitHub/GitHub Actions
 - Vercel
+- Clerk
 
 ### API provider
 
@@ -83,15 +84,17 @@ test/refactor-components-with-atomic design
 
 ## What architectural decisions have been made?
 
+- Clerk to be used for authentication
 - Zod will be used for schema validation
 - Tabler will be used for React icons
 
 ## What is the next area of focus?
 
-1. Implement state to hold longitude and latitude, testing skeleton UI whilst awaiting information
-2. Read up on Zod for schema validation
-3. Consider ORM use or park for later
-4. Implement deployment pipelines following successful MVP creation
+1. Implement flow for non signed up users
+2. Create database to store API information to save on costs
+3. Read up on Zod for schema validation
+4. Consider ORM use or park for later
+5. Implement deployment pipelines following successful MVP creation
 
 ### Tracer bullet components
 
@@ -122,7 +125,10 @@ test/refactor-components-with-atomic design
 - [x] Add skeletons for loading state
 - [x] Add component/styling for error state
 - [x] Deploy to Vercel
-- [ ] Authentication for individual users
+- [x] Authentication for individual users
+- [ ] Create sign in/sign up route (don't use API call until signed in)
+- [ ] Design database use to store API information so only gathered once a day
+- [ ] Feature to show current location
 - [ ] Consider location map
 - [ ] Create helper function to extract colour logic to change on conditions (e.g. more intense colours for different sunsets, cloud cover etc.)
 - [ ] Authentication for individual users
