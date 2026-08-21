@@ -80,7 +80,23 @@ test/refactor-components-with-atomic design
 
 ## How does it all hang together?
 
+## High level overview
+
 ![Overview Diagram](/docs/project-sol-overview.png)
+
+## Authentication
+
+Authentication is setup using Clerk. The dashboard for administration can be found be following the below link:
+
+https://dashboard.clerk.com/
+
+N.B. Production keys are stored in the Vercel deployment platform and test keys are saved in the .env file of the project. Both can be obtained from the dashboard.
+
+Google SSO is enabled and adminstration completed under the Project Sol project area in the Google Cloud Console:
+
+https://console.cloud.google.com/
+
+Test environment uses Clerk's Google SSO, this has been configured for production under the 'Web Client' ID which is found in the auth/clients section of the admin console.
 
 ## What architectural decisions have been made?
 
@@ -126,6 +142,7 @@ test/refactor-components-with-atomic design
 - [x] Add component/styling for error state
 - [x] Deploy to Vercel
 - [x] Authentication for individual users
+- [ ] Complete setup for production link between clerk and vercel to test Google OAuth
 - [ ] Create sign in/sign up route (don't use API call until signed in)
 - [ ] Design database use to store API information so only gathered once a day
 - [ ] Feature to show current location
